@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <head>
+    <title>Dark Mode Switch</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+      <style>
+    
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode button {
+  background-color: #ff6347;
+} 
+</style>
+  </head>
+   <body>
+    <div class="container">
+        <h1>Light/Dark Mode Example</h1>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+      </div>
+
+
+<script>
+    function toggleDarkMode() 
+    {
+         document.body.classList.toggle('dark-mode');
+         
+         if (document.body.classList.contains('dark-mode')) 
+         {
+             localStorage.setItem('theme', 'dark');
+         } 
+         else 
+         {
+            localStorage.setItem('theme', 'light');
+         }
+    }
+
+
+   if (localStorage.getItem('theme') === 'dark') 
+   {
+       document.body.classList.add('dark-mode');
+    }
+
+     
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', toggleDarkMode);
+
+        
+
+    </script>
+   </body>
+</html>
+    

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+   <head>
+    <title>Conversion sec to hrs to minutes</title>
+      <style>
+         body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button 
+        {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+      </style>
+   </head>
+    <body>
+        <div class="container">
+            <h1>Convert Seconds</h1>
+             <input type="number" id="secondsInput" placeholder="Enter Seconds">
+              <button onclick="convertSeconds()">Convert</button>
+              <div class="result" id="result"></div>
+        </div>
+
+        <script>
+            function convertSeconds()
+            {
+                const seconds=parseInt(document.getElementById("secondsInput").value);
+
+                  if(isNaN(seconds) || seconds < 0)
+                  {
+                    document.getElementById("result").innerHTML="please enter a valid number of seconds.";
+                    return;  
+                  }
+                const hours=Math.floor(seconds/3600);
+                const minutes=Math.floor(seconds%3600/60);
+                const remainingSeconds=seconds%60;
+
+                document.getElementById("result").innerHTML=`${hours}hours,${minutes}minutes,${remainingSeconds}seconds`;//template string
+            }
+
+        </script>
+    </body>
+ </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <head>
+    <title>Download Button With Timer</title>
+     <style>
+         body {
+         font-family: Arial, sans-serif;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         background-color: #f4f4f9;
+     }
+     #downloadButton {
+       padding: 10px 20px;
+       background-color:blue;
+       color: white;
+       border: none;
+       font-size: 16px;
+       cursor: not-allowed;
+    }
+    #downloadButton.enabled {
+      cursor: pointer;
+    }
+
+.container {
+  text-align: center;
+}
+
+     </style>
+      
+  </he
+  ad>
+  <body>
+    <div class="container">
+        <p id="timer">Time remaining: <span id="time">10</span> seconds</p>
+        <button id="downloadButton" disabled>Download</button>
+      </div>
+
+    <script>
+        
+      let countdownTime = 10; //seconds
+      const timerElement = document.getElementById('time');
+      const downloadButton = document.getElementById('downloadButton');
+
+
+      const timerInterval = setInterval(() => //function with time 
+      {
+              countdownTime--;
+              timerElement.textContent = countdownTime;
+
+           if (countdownTime <= 0) 
+          {
+            clearInterval(timerInterval); 
+            downloadButton.disabled = false;
+            downloadButton.classList.add('enabled');
+            downloadButton.textContent = "Click to Download";
+         }
+    }, 1000);
+
+
+   downloadButton.addEventListener('click', function() {
+     if (!downloadButton.disabled) 
+     {
+    
+      const downloadLink = document.createElement('a');
+      downloadLink.href = 'https://www.javatpoint.com/advanced-javascript-concepts'; // File URL here
+      downloadLink.download = 'file.zip'; // Optional: Set file name
+      downloadLink.click();
+    }
+   });
+
+
+    </script>
+  </body>
+</html>
